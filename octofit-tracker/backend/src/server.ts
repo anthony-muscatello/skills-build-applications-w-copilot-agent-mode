@@ -1,10 +1,15 @@
 import express from 'express';
-import { baseUrl, port } from './config/server';
 import activitiesRouter from './routes/activities';
 import leaderboardRouter from './routes/leaderboard';
 import teamsRouter from './routes/teams';
 import usersRouter from './routes/users';
 import workoutsRouter from './routes/workouts';
+
+const codespaceName = process.env.CODESPACE_NAME;
+const port = Number(process.env.PORT) || 8000;
+const baseUrl = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev`
+  : 'http://localhost:8000';
 
 const app = express();
 

@@ -1,16 +1,5 @@
-import express from 'express';
 import { connectDatabase } from './config/database';
-import { baseUrl, port } from './config/server';
-import apiRouter from './routes';
-
-const app = express();
-
-app.use(express.json());
-app.use('/api', apiRouter);
-
-app.get('/api/health', (_request, response) => {
-  response.json({ status: 'ok', service: 'octofit-api', baseUrl });
-});
+import { app, baseUrl, port } from './server';
 
 async function startServer() {
   try {

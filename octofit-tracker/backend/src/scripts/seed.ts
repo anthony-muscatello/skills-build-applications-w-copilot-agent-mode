@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { connectionString } from '../config/database';
-import { Activity, LeaderboardEntry, Team, User, Workout } from '../models';
+import { Activity, Leaderboard, Team, User, Workout } from '../models';
 
 const users = [
   {
@@ -109,7 +109,7 @@ async function seedDatabase() {
       User.deleteMany({}),
       Team.deleteMany({}),
       Activity.deleteMany({}),
-      LeaderboardEntry.deleteMany({}),
+      Leaderboard.deleteMany({}),
       Workout.deleteMany({}),
     ]);
 
@@ -117,7 +117,7 @@ async function seedDatabase() {
       User.insertMany(users),
       Team.insertMany(teams),
       Activity.insertMany(activities),
-      LeaderboardEntry.insertMany(leaderboard),
+      Leaderboard.insertMany(leaderboard),
       Workout.insertMany(workouts),
     ]);
 
